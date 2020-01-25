@@ -13,7 +13,7 @@ class List{
 	node* tail;
 	List();
 	List(const List& obj);
-	std::ostream operator& <<(const std::ostream& out, List& ob);
+	friend std::ostream & operator <<(std::ostream& out,const List& ob);
 	List& operator +=(int x);
 	~List();
 	};

@@ -2,7 +2,7 @@
 #include "List.h"
 
 int main(){
-	List::List listok;
+	List listok;
 	  listok+=5;
 	  listok+=-4;
 	  listok+=-1;

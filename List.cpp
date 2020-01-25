@@ -20,15 +20,15 @@ List::~List(){
 			  head=temp;
 		   }
 	}
-std::ostream operator& <<(const std::ostream& out, List& ob){
-	    List::List temp(ob);
+std::ostream & operator <<(std::ostream& out,const List& ob){
+	    List temp(ob);
 	    for(int i=0; i<ob.count;++i){
 			out<<temp.head->value<<std::endl;
 			temp.head=temp.head->next;
 		}
 	    return out;
 	}
-List::List& operator +=(int x){
+List& List::operator +=(int x){
 	   node* temp;
 	   if (tail=nullptr){
 		      temp->value=x;
