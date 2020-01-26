@@ -7,16 +7,28 @@ List::List() {
 	count = 0;
 }
 void List::rearranged() {
-	node* temp = head->next;
-	for (int i = count; i > 0; i--) {
-		if (temp->value<0) {
-			
+	if (!head) {
+		return;
+	}
+	node* old_head = head;
+	node* current = head->next;
+	node* prev = head;
+	while (current) {
+		old_head = head;
+		if (current->value < 0) {
+			head = current;
+			prev->next = current->next;
+			current->next = old_head;
+			current = prev->next;
+		} else {
+			prev = current;
+			current = current->next;
 		}
 	}
 }
 List::~List() {
 	node* temp=head;
-	while ((temp->next)!= nullptr) {
+	while (temp->next!= nullptr) {
 		temp = head->next;
 		deleteNode(head);
 		head = temp;
@@ -33,7 +45,7 @@ std::ostream& operator <<(std::ostream& out, List& ob) {
 	}
 	return out;
 }
-List& List::operator +=(int x) {
+List& List::operator +=(int x){
 	node* temp;
 	if (count == 0) {
 		head = new node();

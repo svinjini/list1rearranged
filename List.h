@@ -17,5 +17,5 @@ class List{
 	List& operator +=(int x);
 	void deleteNode(node* a);
 	void rearranged();
-	virtual ~List();
+	~List();
 	};
